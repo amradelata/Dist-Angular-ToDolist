@@ -49,41 +49,41 @@ class AddTodoComponent {
     //set dynamic classes
     setClasses() {
         let classes = {
-            'rde': this.title === undefined || "" || this.title.length < 3,
+            'rde': this.body === undefined || "" || this.body.length < 3,
         };
         return classes;
     }
     onSubmit() {
         // const myId = Math.random();
-        if (this.title === undefined || "" || this.title.length < 3) {
+        if (this.body === undefined || "" || this.body.length < 3) {
             return;
         }
         else {
             const todo = {
                 id: Math.floor((Math.random() * 400) + 200),
-                title: this.title,
+                body: this.body,
                 completed: false,
             };
             this.addTodo.emit(todo);
             console.log(todo);
-            this.title = ""; //rest the input
+            this.body = ""; //rest the input
         }
     }
 }
 AddTodoComponent.ɵfac = function AddTodoComponent_Factory(t) { return new (t || AddTodoComponent)(); };
-AddTodoComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AddTodoComponent, selectors: [["app-add-todo"]], outputs: { addTodo: "addTodo" }, decls: 4, vars: 2, consts: [[1, "form", 3, "ngSubmit"], ["type", "text", "name", "title", "placeholder", "Add Todo..", 3, "ngModel", "ngModelChange"], ["type", "submit", "value", "Submit", 1, "btn", 3, "ngClass"]], template: function AddTodoComponent_Template(rf, ctx) { if (rf & 1) {
+AddTodoComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AddTodoComponent, selectors: [["app-add-todo"]], outputs: { addTodo: "addTodo" }, decls: 4, vars: 2, consts: [[1, "form", 3, "ngSubmit"], ["type", "text", "name", "body", "placeholder", "Add Todo..", 3, "ngModel", "ngModelChange"], ["type", "submit", "value", "Submit", 1, "btn", 3, "ngClass"]], template: function AddTodoComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "form", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngSubmit", function AddTodoComponent_Template_form_ngSubmit_1_listener() { return ctx.onSubmit(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "input", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function AddTodoComponent_Template_input_ngModelChange_2_listener($event) { return ctx.title = $event; });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function AddTodoComponent_Template_input_ngModelChange_2_listener($event) { return ctx.body = $event; });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "input", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.title);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.body);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", ctx.setClasses());
     } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgForm"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgModel"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgClass"]], styles: [".form[_ngcontent-%COMP%]{\r\n    display: flex;\r\n}\r\n\r\n.form[_ngcontent-%COMP%]   input[type='text'][_ngcontent-%COMP%]{\r\n    flex: 10;\r\n    padding: 5px;\r\n}\r\n\r\n.form[_ngcontent-%COMP%]   input[type='submit'][_ngcontent-%COMP%]{\r\n    flex: 2;\r\n}\r\n\r\n.rde[_ngcontent-%COMP%]{\r\n    background-color: #eb4d4b;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRkLXRvZG8vYWRkLXRvZG8uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGFBQWE7QUFDakI7O0FBRUE7SUFDSSxRQUFRO0lBQ1IsWUFBWTtBQUNoQjs7QUFDQTtJQUNJLE9BQU87QUFDWDs7QUFFQTtJQUNJLHlCQUF5QjtBQUM3QiIsImZpbGUiOiJzcmMvYXBwL2FkZC10b2RvL2FkZC10b2RvLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZm9ybXtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbn1cclxuXHJcbi5mb3JtIGlucHV0W3R5cGU9J3RleHQnXXtcclxuICAgIGZsZXg6IDEwO1xyXG4gICAgcGFkZGluZzogNXB4O1xyXG59XHJcbi5mb3JtIGlucHV0W3R5cGU9J3N1Ym1pdCdde1xyXG4gICAgZmxleDogMjtcclxufVxyXG5cclxuLnJkZXtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNlYjRkNGI7XHJcbn1cclxuIl19 */"] });
@@ -469,7 +469,8 @@ const httpOptions = {
 class TodoService {
     constructor(http) {
         this.http = http;
-        this.todoUrl = "https://jsonplaceholder.typicode.com/todos";
+        //to limit the array item to 5 opjects do this after the url ?_limit=5
+        this.todoUrl = "https://crud-database.herokuapp.com/tweets";
     }
     // Get Todos
     getTodos() {
