@@ -389,7 +389,8 @@ class TodoItemComponent {
         savebtn.classList.toggle("displaynone");
         editbtn.classList.toggle("displaynone");
         //Server changes
-        todo.title = myeditinput.value;
+        console.log(todo.body);
+        todo.body = myeditinput.value;
         this.todoService.edittodo(todo).subscribe(todo => console.log(todo));
     }
 }
@@ -425,9 +426,9 @@ TodoItemComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"]("MY ID -" + ctx.todo.id + " : ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.todo.title);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.todo.body);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("value", ctx.todo.title);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("value", ctx.todo.body);
     } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgClass"]], styles: [".btn[_ngcontent-%COMP%]{\r\n    border: none;\r\n    padding: 5px 9px;\r\n    margin-left: 10px;\r\n    cursor: pointer;\r\n    \r\n}\r\n\r\n.del[_ngcontent-%COMP%]{\r\n    background-color: #ff0000;\r\n    color: #fff;\r\n\r\n}\r\n\r\n.edit[_ngcontent-%COMP%]{\r\n    background-color: rgb(236, 233, 35);\r\n    color: #000;\r\n}\r\n\r\n.save[_ngcontent-%COMP%]{\r\n    background-color: rgb(11, 165, 88)\r\n}\r\n\r\n.todo[_ngcontent-%COMP%]{\r\n    background-color: #f4f4f4;\r\n    padding: 10px;\r\n    border-bottom: 1px solid #ccc ;\r\n\r\n}\r\n\r\n.is-complete[_ngcontent-%COMP%]{\r\n    text-decoration: line-through;\r\n    \r\n}\r\n\r\n.displaynone[_ngcontent-%COMP%]{\r\n    display: none;\r\n}\r\n\r\n.myTodoText[_ngcontent-%COMP%]{\r\n    cursor: pointer;\r\n  -webkit-user-select: none;             \r\n  user-select: none;           \r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdG9kby1pdGVtL3RvZG8taXRlbS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksWUFBWTtJQUNaLGdCQUFnQjtJQUNoQixpQkFBaUI7SUFDakIsZUFBZTtJQUNmLGtCQUFrQjtBQUN0Qjs7QUFFQTtJQUNJLHlCQUF5QjtJQUN6QixXQUFXOztBQUVmOztBQUNBO0lBQ0ksbUNBQW1DO0lBQ25DLFdBQVc7QUFDZjs7QUFDQTtJQUNJO0FBQ0o7O0FBRUE7SUFDSSx5QkFBeUI7SUFDekIsYUFBYTtJQUNiLDhCQUE4Qjs7QUFFbEM7O0FBR0E7SUFDSSw2QkFBNkI7O0FBRWpDOztBQUNBO0lBQ0ksYUFBYTtBQUNqQjs7QUFDQTtJQUNJLGVBQWU7RUFDakIseUJBQXlCLEdBQUcsNEJBQTRCLE1BQzVCLGdCQUFnQixPQUNoQixXQUFXO0VBQ3ZDLGlCQUFpQixXQUFXLGtCQUFrQjtBQUNoRCIsImZpbGUiOiJzcmMvYXBwL3RvZG8taXRlbS90b2RvLWl0ZW0uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5idG57XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbiAgICBwYWRkaW5nOiA1cHggOXB4O1xyXG4gICAgbWFyZ2luLWxlZnQ6IDEwcHg7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICAvKiBmbG9hdDogcmlnaHQ7ICovXHJcbn1cclxuXHJcbi5kZWx7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmYwMDAwO1xyXG4gICAgY29sb3I6ICNmZmY7XHJcblxyXG59XHJcbi5lZGl0e1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDIzNiwgMjMzLCAzNSk7XHJcbiAgICBjb2xvcjogIzAwMDtcclxufVxyXG4uc2F2ZXtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYigxMSwgMTY1LCA4OClcclxufVxyXG5cclxuLnRvZG97XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjRmNGY0O1xyXG4gICAgcGFkZGluZzogMTBweDtcclxuICAgIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjY2NjIDtcclxuXHJcbn1cclxuXHJcblxyXG4uaXMtY29tcGxldGV7XHJcbiAgICB0ZXh0LWRlY29yYXRpb246IGxpbmUtdGhyb3VnaDtcclxuICAgIFxyXG59XHJcbi5kaXNwbGF5bm9uZXtcclxuICAgIGRpc3BsYXk6IG5vbmU7XHJcbn1cclxuLm15VG9kb1RleHR7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgLXdlYmtpdC11c2VyLXNlbGVjdDogbm9uZTsgIC8qIENocm9tZSBhbGwgLyBTYWZhcmkgYWxsICovXHJcbiAgLW1vei11c2VyLXNlbGVjdDogbm9uZTsgICAgIC8qIEZpcmVmb3ggYWxsICovXHJcbiAgLW1zLXVzZXItc2VsZWN0OiBub25lOyAgICAgIC8qIElFIDEwKyAqL1xyXG4gIHVzZXItc2VsZWN0OiBub25lOyAgICAgICAgICAvKiBMaWtlbHkgZnV0dXJlICovIFxyXG59Il19 */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](TodoItemComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
