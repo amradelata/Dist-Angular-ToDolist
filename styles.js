@@ -439,7 +439,7 @@ module.exports = content.locals || {};
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! F:\projets\1-frameworks\Angular\routing-app\src\styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! F:\projets\1-frameworks\Angular\Angular-ToDolist\src\styles.css */"./src/styles.css");
 
 
 /***/ })
