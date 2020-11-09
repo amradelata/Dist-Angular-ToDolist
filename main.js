@@ -396,7 +396,14 @@ class TodoItemComponent {
         deletBtn.classList.toggle("displaynone");
         editbtn.classList.toggle("displaynone");
         savebtn.classList.toggle("displaynone");
-        myeditinput.addEventListener('keyup', () => { savebtn.classList.add("displayblock"); });
+        myeditinput.addEventListener('keyup', () => {
+            if (myeditinput.value.length === 0 || myeditinput.value === todo.body) {
+                savebtn.classList.remove("displayblock");
+            }
+            else {
+                savebtn.classList.add("displayblock");
+            }
+        });
         myeditinput.select();
     }
     onCancel(mydiv, savebtn, myeditinput, todo, editbtn, cancelBtn, deletBtn) {
