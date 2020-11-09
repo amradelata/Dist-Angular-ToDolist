@@ -388,20 +388,37 @@ class TodoItemComponent {
         // console.log('onDelet')  
         this.deleteTodo.emit(todo);
     }
-    onEdit(mydiv, savebtn, myeditinput, todo, editbtn) {
+    onEdit(mydiv, savebtn, myeditinput, todo, editbtn, cancelBtn, deletBtn) {
         //UI changes
         mydiv.classList.toggle("displaynone");
         myeditinput.classList.toggle("displaynone");
+        cancelBtn.classList.toggle("displaynone");
+        deletBtn.classList.toggle("displaynone");
         editbtn.classList.toggle("displaynone");
+        savebtn.classList.toggle("displaynone");
         myeditinput.addEventListener('keyup', () => { savebtn.classList.add("displayblock"); });
+        myeditinput.select();
     }
-    onSave(mydiv, savebtn, myeditinput, todo, editbtn) {
+    onCancel(mydiv, savebtn, myeditinput, todo, editbtn, cancelBtn, deletBtn) {
+        //UI changes
+        myeditinput.classList.toggle("displaynone");
+        cancelBtn.classList.toggle("displaynone");
+        deletBtn.classList.toggle("displaynone");
+        mydiv.classList.toggle("displaynone");
+        editbtn.classList.toggle("displaynone");
+        savebtn.classList.add("displaynone");
+        savebtn.classList.remove("displayblock");
+        myeditinput.value = todo.body;
+    }
+    onSave(mydiv, savebtn, myeditinput, todo, editbtn, cancelBtn, deletBtn) {
         //UI changes
         mydiv.classList.toggle("displaynone");
         myeditinput.classList.toggle("displaynone");
         savebtn.classList.remove("displayblock");
         savebtn.classList.add("displaynone");
         editbtn.classList.toggle("displaynone");
+        deletBtn.classList.toggle("displaynone");
+        cancelBtn.classList.toggle("displaynone");
         console.log(savebtn);
         //Server changes
         todo.body = myeditinput.value;
@@ -409,8 +426,8 @@ class TodoItemComponent {
     }
 }
 TodoItemComponent.ɵfac = function TodoItemComponent_Factory(t) { return new (t || TodoItemComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_todo_service__WEBPACK_IMPORTED_MODULE_1__["TodoService"])); };
-TodoItemComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: TodoItemComponent, selectors: [["app-todo-item"]], inputs: { todo: "todo" }, outputs: { deleteTodo: "deleteTodo" }, decls: 15, vars: 3, consts: [[3, "ngClass"], ["mydiv", ""], [1, "myTodoText", 3, "click"], ["type", "text", 1, "displaynone", 3, "value", "keyup.enter"], ["myeditinput", ""], [1, "edit", "btn", 3, "click"], ["editbtn", ""], [1, "btn", "save", "displaynone", 3, "click"], ["savebtn", ""], [1, "del", "btn", 3, "click"]], template: function TodoItemComponent_Template(rf, ctx) { if (rf & 1) {
-        const _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+TodoItemComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: TodoItemComponent, selectors: [["app-todo-item"]], inputs: { todo: "todo" }, outputs: { deleteTodo: "deleteTodo" }, decls: 19, vars: 3, consts: [[3, "ngClass"], ["mydiv", ""], [1, "myTodoText", 3, "click"], ["type", "text", 1, "displaynone", 3, "value", "keyup.enter"], ["myeditinput", ""], [1, "edit", "btn", 3, "click"], ["editbtn", ""], [1, "btn", "save", "displaynone", 3, "click"], ["savebtn", ""], [1, "del", "btn", 3, "click"], ["deletBtn", ""], [1, "cancel", "btn", "displaynone", 3, "click"], ["cancelBtn", ""]], template: function TodoItemComponent_Template(rf, ctx) { if (rf & 1) {
+        const _r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", null, 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "span", 2);
@@ -419,19 +436,23 @@ TodoItemComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "input", 3, 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("keyup.enter", function TodoItemComponent_Template_input_keyup_enter_5_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r4); const _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](2); const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](11); const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](6); const _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](8); return ctx.onSave(_r0, _r3, _r1, ctx.todo, _r2); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("keyup.enter", function TodoItemComponent_Template_input_keyup_enter_5_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r6); const _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](2); const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](11); const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](6); const _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](8); const _r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](17); const _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](14); return ctx.onSave(_r0, _r3, _r1, ctx.todo, _r2, _r5, _r4); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "button", 5, 6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function TodoItemComponent_Template_button_click_7_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r4); const _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](2); const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](11); const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](6); const _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](8); return ctx.onEdit(_r0, _r3, _r1, ctx.todo, _r2); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function TodoItemComponent_Template_button_click_7_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r6); const _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](2); const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](11); const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](6); const _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](8); const _r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](17); const _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](14); return ctx.onEdit(_r0, _r3, _r1, ctx.todo, _r2, _r5, _r4); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, "Edit");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "button", 7, 8);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function TodoItemComponent_Template_button_click_10_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r4); const _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](2); const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](11); const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](6); const _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](8); return ctx.onSave(_r0, _r3, _r1, ctx.todo, _r2); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function TodoItemComponent_Template_button_click_10_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r6); const _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](2); const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](11); const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](6); const _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](8); const _r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](17); const _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](14); return ctx.onSave(_r0, _r3, _r1, ctx.todo, _r2, _r5, _r4); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "Save");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "button", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "button", 9, 10);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function TodoItemComponent_Template_button_click_13_listener() { return ctx.onDelete(ctx.todo); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "Delete");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15, "Delete");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "button", 11, 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function TodoItemComponent_Template_button_click_16_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r6); const _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](2); const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](11); const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](6); const _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](8); const _r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](17); const _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](14); return ctx.onCancel(_r0, _r3, _r1, ctx.todo, _r2, _r5, _r4); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18, "Cancel");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
@@ -440,7 +461,7 @@ TodoItemComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.todo.body);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("value", ctx.todo.body);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgClass"]], styles: [".btn[_ngcontent-%COMP%]{\r\n    border: none;\r\n    padding: 5px 9px;\r\n    margin-left: 10px;\r\n    cursor: pointer;\r\n    \r\n}\r\n.myText[_ngcontent-%COMP%]{\r\n    background-color: #ff0000;\r\n}\r\n.del[_ngcontent-%COMP%]{\r\n    background-color: #ff0000;\r\n    color: #fff;\r\n\r\n}\r\n.edit[_ngcontent-%COMP%]{\r\n    background-color: rgb(236, 233, 35);\r\n    color: #000;\r\n}\r\n.save[_ngcontent-%COMP%]{\r\n    \r\n    background-color: rgb(11, 165, 88);\r\n    \r\n}\r\n.todo[_ngcontent-%COMP%]{\r\n    background-color: #f4f4f4;\r\n    padding: 10px;\r\n    border-bottom: 1px solid #ccc ;\r\n    \r\n}\r\nspan[_ngcontent-%COMP%]{\r\n    \r\n    margin-left: 10px;\r\n    margin-bottom: 10px;\r\n}\r\n.is-complete[_ngcontent-%COMP%]{\r\n    text-decoration: line-through;\r\n    \r\n}\r\n.displaynone[_ngcontent-%COMP%]{\r\n    display: none;\r\n}\r\n.displayblock[_ngcontent-%COMP%]{\r\n    display: inline-block;\r\n}\r\n.myTodoText[_ngcontent-%COMP%]{\r\n    cursor: pointer;\r\n  -webkit-user-select: none;             \r\n  user-select: none;           \r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdG9kby1pdGVtL3RvZG8taXRlbS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksWUFBWTtJQUNaLGdCQUFnQjtJQUNoQixpQkFBaUI7SUFDakIsZUFBZTtJQUNmLGtCQUFrQjtBQUN0QjtBQUNBO0lBQ0kseUJBQXlCO0FBQzdCO0FBRUE7SUFDSSx5QkFBeUI7SUFDekIsV0FBVzs7QUFFZjtBQUNBO0lBQ0ksbUNBQW1DO0lBQ25DLFdBQVc7QUFDZjtBQUNBOztJQUVJLGtDQUFrQzs7QUFFdEM7QUFFQTtJQUNJLHlCQUF5QjtJQUN6QixhQUFhO0lBQ2IsOEJBQThCOztBQUVsQztBQUNBOztJQUVJLGlCQUFpQjtJQUNqQixtQkFBbUI7QUFDdkI7QUFFQTtJQUNJLDZCQUE2Qjs7QUFFakM7QUFDQTtJQUNJLGFBQWE7QUFDakI7QUFDQTtJQUNJLHFCQUFxQjtBQUN6QjtBQUNBO0lBQ0ksZUFBZTtFQUNqQix5QkFBeUIsR0FBRyw0QkFBNEIsTUFDNUIsZ0JBQWdCLE9BQ2hCLFdBQVc7RUFDdkMsaUJBQWlCLFdBQVcsa0JBQWtCO0FBQ2hEIiwiZmlsZSI6InNyYy9hcHAvdG9kby1pdGVtL3RvZG8taXRlbS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmJ0bntcclxuICAgIGJvcmRlcjogbm9uZTtcclxuICAgIHBhZGRpbmc6IDVweCA5cHg7XHJcbiAgICBtYXJnaW4tbGVmdDogMTBweDtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIC8qIGZsb2F0OiByaWdodDsgKi9cclxufVxyXG4ubXlUZXh0e1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2ZmMDAwMDtcclxufVxyXG5cclxuLmRlbHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNmZjAwMDA7XHJcbiAgICBjb2xvcjogI2ZmZjtcclxuXHJcbn1cclxuLmVkaXR7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjM2LCAyMzMsIDM1KTtcclxuICAgIGNvbG9yOiAjMDAwO1xyXG59XHJcbi5zYXZle1xyXG4gICAgXHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMTEsIDE2NSwgODgpO1xyXG4gICAgXHJcbn1cclxuXHJcbi50b2Rve1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2Y0ZjRmNDtcclxuICAgIHBhZGRpbmc6IDEwcHg7XHJcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2NjYyA7XHJcbiAgICBcclxufVxyXG5zcGFue1xyXG4gICAgXHJcbiAgICBtYXJnaW4tbGVmdDogMTBweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDEwcHg7XHJcbn1cclxuXHJcbi5pcy1jb21wbGV0ZXtcclxuICAgIHRleHQtZGVjb3JhdGlvbjogbGluZS10aHJvdWdoO1xyXG4gICAgXHJcbn1cclxuLmRpc3BsYXlub25le1xyXG4gICAgZGlzcGxheTogbm9uZTtcclxufVxyXG4uZGlzcGxheWJsb2Nre1xyXG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG59XHJcbi5teVRvZG9UZXh0e1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gIC13ZWJraXQtdXNlci1zZWxlY3Q6IG5vbmU7ICAvKiBDaHJvbWUgYWxsIC8gU2FmYXJpIGFsbCAqL1xyXG4gIC1tb3otdXNlci1zZWxlY3Q6IG5vbmU7ICAgICAvKiBGaXJlZm94IGFsbCAqL1xyXG4gIC1tcy11c2VyLXNlbGVjdDogbm9uZTsgICAgICAvKiBJRSAxMCsgKi9cclxuICB1c2VyLXNlbGVjdDogbm9uZTsgICAgICAgICAgLyogTGlrZWx5IGZ1dHVyZSAqLyBcclxufVxyXG4iXX0= */"] });
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgClass"]], styles: [".btn[_ngcontent-%COMP%]{\r\n    border: none;\r\n    padding: 5px 9px;\r\n    margin-left: 10px;\r\n    cursor: pointer;\r\n    \r\n}\r\n.myText[_ngcontent-%COMP%]{\r\n    background-color: #ff0000;\r\n}\r\n.del[_ngcontent-%COMP%]{\r\n    background-color: #ff0000;\r\n    color: #fff;\r\n\r\n}\r\n.edit[_ngcontent-%COMP%]{\r\n    background-color: rgb(236, 233, 35);\r\n    color: #000;\r\n}\r\n.cancel[_ngcontent-%COMP%]{\r\n    background-color: #00b894;\r\n}\r\n.save[_ngcontent-%COMP%]{\r\n    \r\n  background-color: #787878 ;\r\n  pointer-events: none;\r\n    \r\n}\r\n.todo[_ngcontent-%COMP%]{\r\n    background-color: #f4f4f4;\r\n    padding: 10px;\r\n    border-bottom: 1px solid #ccc ;\r\n    \r\n}\r\nspan[_ngcontent-%COMP%]{\r\n    \r\n    margin-left: 10px;\r\n    margin-bottom: 10px;\r\n}\r\n.is-complete[_ngcontent-%COMP%]{\r\n    text-decoration: line-through;\r\n    \r\n}\r\n.displaynone[_ngcontent-%COMP%]{\r\n    display: none;\r\n}\r\n.displayblock[_ngcontent-%COMP%]{\r\n    display: inline-block;\r\n    background-color: rgb(11, 165, 88);\r\n    pointer-events: visible;\r\n}\r\n.myTodoText[_ngcontent-%COMP%]{\r\n    cursor: pointer;\r\n  -webkit-user-select: none;             \r\n  user-select: none;           \r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdG9kby1pdGVtL3RvZG8taXRlbS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksWUFBWTtJQUNaLGdCQUFnQjtJQUNoQixpQkFBaUI7SUFDakIsZUFBZTtJQUNmLGtCQUFrQjtBQUN0QjtBQUNBO0lBQ0kseUJBQXlCO0FBQzdCO0FBRUE7SUFDSSx5QkFBeUI7SUFDekIsV0FBVzs7QUFFZjtBQUNBO0lBQ0ksbUNBQW1DO0lBQ25DLFdBQVc7QUFDZjtBQUNBO0lBQ0kseUJBQXlCO0FBQzdCO0FBR0E7O0VBRUUsMEJBQTBCO0VBQzFCLG9CQUFvQjs7QUFFdEI7QUFFQTtJQUNJLHlCQUF5QjtJQUN6QixhQUFhO0lBQ2IsOEJBQThCOztBQUVsQztBQUNBOztJQUVJLGlCQUFpQjtJQUNqQixtQkFBbUI7QUFDdkI7QUFFQTtJQUNJLDZCQUE2Qjs7QUFFakM7QUFDQTtJQUNJLGFBQWE7QUFDakI7QUFDQTtJQUNJLHFCQUFxQjtJQUNyQixrQ0FBa0M7SUFDbEMsdUJBQXVCO0FBQzNCO0FBQ0E7SUFDSSxlQUFlO0VBQ2pCLHlCQUF5QixHQUFHLDRCQUE0QixNQUM1QixnQkFBZ0IsT0FDaEIsV0FBVztFQUN2QyxpQkFBaUIsV0FBVyxrQkFBa0I7QUFDaEQiLCJmaWxlIjoic3JjL2FwcC90b2RvLWl0ZW0vdG9kby1pdGVtLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYnRue1xyXG4gICAgYm9yZGVyOiBub25lO1xyXG4gICAgcGFkZGluZzogNXB4IDlweDtcclxuICAgIG1hcmdpbi1sZWZ0OiAxMHB4O1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgLyogZmxvYXQ6IHJpZ2h0OyAqL1xyXG59XHJcbi5teVRleHR7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmYwMDAwO1xyXG59XHJcblxyXG4uZGVse1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2ZmMDAwMDtcclxuICAgIGNvbG9yOiAjZmZmO1xyXG5cclxufVxyXG4uZWRpdHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYigyMzYsIDIzMywgMzUpO1xyXG4gICAgY29sb3I6ICMwMDA7XHJcbn1cclxuLmNhbmNlbHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICMwMGI4OTQ7XHJcbn1cclxuXHJcblxyXG4uc2F2ZXtcclxuICAgIFxyXG4gIGJhY2tncm91bmQtY29sb3I6ICM3ODc4NzggO1xyXG4gIHBvaW50ZXItZXZlbnRzOiBub25lO1xyXG4gICAgXHJcbn1cclxuXHJcbi50b2Rve1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2Y0ZjRmNDtcclxuICAgIHBhZGRpbmc6IDEwcHg7XHJcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2NjYyA7XHJcbiAgICBcclxufVxyXG5zcGFue1xyXG4gICAgXHJcbiAgICBtYXJnaW4tbGVmdDogMTBweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDEwcHg7XHJcbn1cclxuXHJcbi5pcy1jb21wbGV0ZXtcclxuICAgIHRleHQtZGVjb3JhdGlvbjogbGluZS10aHJvdWdoO1xyXG4gICAgXHJcbn1cclxuLmRpc3BsYXlub25le1xyXG4gICAgZGlzcGxheTogbm9uZTtcclxufVxyXG4uZGlzcGxheWJsb2Nre1xyXG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDExLCAxNjUsIDg4KTtcclxuICAgIHBvaW50ZXItZXZlbnRzOiB2aXNpYmxlO1xyXG59XHJcbi5teVRvZG9UZXh0e1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gIC13ZWJraXQtdXNlci1zZWxlY3Q6IG5vbmU7ICAvKiBDaHJvbWUgYWxsIC8gU2FmYXJpIGFsbCAqL1xyXG4gIC1tb3otdXNlci1zZWxlY3Q6IG5vbmU7ICAgICAvKiBGaXJlZm94IGFsbCAqL1xyXG4gIC1tcy11c2VyLXNlbGVjdDogbm9uZTsgICAgICAvKiBJRSAxMCsgKi9cclxuICB1c2VyLXNlbGVjdDogbm9uZTsgICAgICAgICAgLyogTGlrZWx5IGZ1dHVyZSAqLyBcclxufVxyXG4iXX0= */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](TodoItemComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -468,10 +489,9 @@ TodoItemComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TodoService", function() { return TodoService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
-
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 
 
 
@@ -479,7 +499,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const httpOptions = {
-    headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
+    headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
         'Content-type': 'application/json'
     })
 };
@@ -493,9 +513,7 @@ class TodoService {
     // Get Todos
     getTodos() {
         return this.http.get(this.todoUrl)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["catchError"])(this.errorHandeler), // handle the error
-        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["delay"])(1500) // simulate network delay
-        );
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.errorHandeler));
     }
     //Toggle Completed  in the server shek the console
     toggleCompleted(todo) {
@@ -509,8 +527,8 @@ class TodoService {
     }
     //  addTodo
     addTodo(todo) {
-        return this.http.post(this.todoUrl, todo, httpOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["delay"])(1500)); // simulate network delay
+        return this.http.post(this.todoUrl, todo, httpOptions);
+        // .pipe(delay(1500))// simulate network delay
     }
     //edittodo
     edittodo(todo) {
@@ -518,17 +536,17 @@ class TodoService {
         return this.http.put(url, todo, httpOptions);
     }
     errorHandeler(error) {
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["throwError"])('Something bad happened; please try again later.');
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["throwError"])('Something bad happened; please try again later.');
     }
 }
-TodoService.ɵfac = function TodoService_Factory(t) { return new (t || TodoService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"])); };
+TodoService.ɵfac = function TodoService_Factory(t) { return new (t || TodoService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
 TodoService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: TodoService, factory: TodoService.ɵfac, providedIn: 'root' });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](TodoService, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
         args: [{
                 providedIn: 'root'
             }]
-    }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] }]; }, null); })();
+    }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }]; }, null); })();
 
 
 /***/ }),
